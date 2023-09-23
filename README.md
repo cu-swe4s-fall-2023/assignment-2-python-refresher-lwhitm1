@@ -34,5 +34,5 @@
             - Returns: ```usage: print_fires.py [-h] --file_name FILE_NAME --country COUNTRY --country_column COUNTRY_COLUMN [--fires_column FIRES_COLUMN]
                         print_fires.py: error: argument --country_column: invalid int value: 'five''
                     ```
-        - This will throw an error if something is not compatible with the script: `python print_fires.py --file_name Agrofood_co2_emission.csv --country 'United States of America' --country_column 100`
+        - This will throw an error if something is not compatible with the script (forces script to throw an error via try/except block): `python print_fires.py --file_name Agrofood_co2_emission.csv --country 'United States of America' --country_column 100`
             - Returns: `Something is wrong either country_column or fire_column. Not able to convert value to integer.`
