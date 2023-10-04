@@ -2,7 +2,7 @@
 
 import sys
 import argparse
-from my_utils import get_column
+from my_utils import get_column, get_mean, get_median, get_std_dev
 
 
 
@@ -28,6 +28,11 @@ def get_args():
                             in. Default value is set to 1- you must explicitly state which column you would
                             like to use otherwise.''',
                         required=False)
+    parser.add_argument('--operation',
+                        type=str,
+                        help='''Specify what operation you would like to run (mean, median, or standard deviation 
+                            (dev) to perform on the returned values. This argument does not need to be specified.''',
+                        required=False)
 
     args = parser.parse_args()
     return args
@@ -36,7 +41,21 @@ def main():
     arg = get_args()
 
     fires = get_column(arg.file_name, arg.country_column, arg.country, arg.fires_column)
-    print(fires)
+    #print(fires)
+
+    if arg.operation == 'mean':
+        mean = get_mean(fires)
+        print(mean)
+    elif arg.operation == 'median':
+        median = get_median(fires)
+        print(median)
+    elif arg.operation == 'dev':
+        std_dev = get_std_dev(fires)
+        print(std_dev)
+    else:
+        print(fires)
+
+
 
 if __name__ == '__main__':
     main()
