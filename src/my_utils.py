@@ -28,7 +28,7 @@ def get_column(file_name, query_column, query_value, result_column=1):
 def get_mean(result):
     if len(result) == 0:
         print('List is empty. Not able to calculate the mean.')
-        sys.exit(1)
+        return None
     try:
         mean = sum(result) / len(result)
         return mean
@@ -41,7 +41,7 @@ def get_median(result):
     n = len(result_sorted)
     if len(result) == 0:
         print('List is empty. Not able to calculate the median.')
-        sys.exit(1)
+        return None
     try:
         if n % 2 == 1:
             median = result_sorted[n//2]
@@ -60,7 +60,7 @@ def get_std_dev(result):
     dif_of_squares = []
     if len(result) == 0:
         print('List is empty. Not able to calculate the median.')
-        sys.exit(1)
+        return None
     try:
         for i in result:
             difference = i - mean
@@ -72,4 +72,3 @@ def get_std_dev(result):
     except:
         print('Unable to calculate the standard deviation.')
         sys.exit(1)
-
