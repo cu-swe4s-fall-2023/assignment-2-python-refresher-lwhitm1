@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.insert(0, '../../src') # noqa
+sys.path.insert(0, '../src') # noqa
 
 import my_utils
 import unittest
