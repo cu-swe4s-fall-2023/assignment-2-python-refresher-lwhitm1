@@ -10,6 +10,13 @@ python print_fires.py --file_name 'Agrofood_co2_emission.csv' --country 'United 
 
 #This shoould also work
 python print_fires.py  --file_name 'Agrofood_co2_emission.csv' --country 'United States of America' --country_column 0 --fires_column 3 --operation 'mean'
+
+#This shoould also work
+python print_fires.py  --file_name 'Agrofood_co2_emission.csv' --country 'United States of America' --country_column 0 --fires_column 3 --operation 'median'
+
+#This shoould also work
+python print_fires.py  --file_name 'Agrofood_co2_emission.csv' --country 'United States of America' --country_column 0 --fires_column 3 --operation 'dev'
+
 set +e
 #This one should throw an error via try except blocks in my_utils.py
 python print_fires.py --file_name Agrofood_co2_emission.csv --country 'United States of America' --country_column 100 
