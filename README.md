@@ -49,3 +49,7 @@
                     ```
         - This will throw an error if something is not compatible with the script (forces script to throw an error via try/except block): `python print_fires.py --file_name Agrofood_co2_emission.csv --country 'United States of America' --country_column 100`
             - Returns: `Something is wrong either country_column or fire_column. Not able to convert value to integer.`
+#How to test
+    - From the test directory run:
+        - For unit tests: `python -m unittest unit/test_my_utils.py`
+        - For functional tests: `bash func/test_print_fires.sh` 
