@@ -26,22 +26,19 @@ def get_column(file_name, query_column, query_value, result_column=1):
     return result
 
 def get_mean(result):
-    if len(result) == 0:
-        print('List is empty. Not able to calculate the mean.')
-        return None
     try:
         mean = sum(result) / len(result)
         return mean
     except ZeroDivisionError:
-        print('Not able to calculate the mean for empty list.')
-        sys.exit(1)
+        #print('Not able to calculate the mean for empty list.')
+        return None
+    except TypeError:
+        #print('Not able to calculate mean. Something is not an integer.')
+        return None
 
 def get_median(result):
     result_sorted = sorted(result)
     n = len(result_sorted)
-    if len(result) == 0:
-        print('List is empty. Not able to calculate the median.')
-        return None
     try:
         if n % 2 == 1:
             median = result_sorted[n//2]
@@ -51,24 +48,29 @@ def get_median(result):
             val2 = result_sorted[n//2]
             median = (val1 + val2)/2
             return median
-    except:
-        print('Not able to calculate the median.')
-        sys.exit(1)
+    except IndexError:
+        #print('Not able to calculate the median. Something is wrong with the list.')
+        return None
+    except TypeError:
+        #print('Not able to calculate the median. Something is not an integer')
+        return None
 
 def get_std_dev(result):
-    mean = get_mean(result)
     dif_of_squares = []
-    if len(result) == 0:
-        print('List is empty. Not able to calculate the median.')
-        return None
     try:
-        for i in result:
-            difference = i - mean
-            diff_squared = difference ** 2
-            dif_of_squares.append(diff_squared)
-        variance = sum(dif_of_squares) / len(result)
-        std_dev = variance ** (1/2)
-        return std_dev
+        mean = get_mean(result)
+        try:
+            for i in result:
+                difference = i - mean
+                diff_squared = difference ** 2
+                dif_of_squares.append(diff_squared)
+            variance = sum(dif_of_squares) / len(result)
+            std_dev = variance ** (1/2)
+            std_dev = "{:.3f}".format(std_dev)
+            return std_dev
+        except ZeroDivisionError:
+            #print('Unable to calculate the standard deviation.')
+            return None
     except:
-        print('Unable to calculate the standard deviation.')
-        sys.exit(1)
+        #print('Not able to get mean. Will not be able to calculate standard deviation')
+        return None
