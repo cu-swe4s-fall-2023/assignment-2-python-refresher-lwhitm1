@@ -54,6 +54,12 @@
 # How to test
     - From the test directory run:
         - For unit tests:
-            - Run: `python -m unittest unit/test_my_utils.py`
+            - Run: 
+            ```
+            python -m unittest unit/test_my_utils.py
+            ```
         - For functional tests:
-            - Run: `bash func/test_print_fires.sh` 
+            - Run: 
+            ```
+            bash func/test_print_fires.sh
+            ``` 
