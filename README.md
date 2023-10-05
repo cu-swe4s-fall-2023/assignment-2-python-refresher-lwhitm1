@@ -2,8 +2,12 @@
 # python-refresher
 
 # Description
-- This project is part of my Software Engineering for Scientists class at CU Boulder. Most recent update is due to assignment 3.
+- This project is part of my Software Engineering for Scientists class at CU Boulder. Most recent update is due to assignment 4.
     
+    - My_utils.py has new functionality! We can now calculate mean, median, and standard deviation.
+
+        - Note: print_fires.py can handle using these operations. Pass the operation (mean, median, dev) that you would like to perform on the list returned from get_column using --operation. 
+
     - Run run.sh to run print_fires.py which returns a list/array of the number of forest fires in the USA as integers.
         
         - Note: run.sh can handle command line arguments! Currently run.sh has three examples of usage (One that works and two that throw errors.)
@@ -16,10 +20,10 @@
     - A csv file
         - This project is set up to use a file called Agrofood_co2_emission.csv from https://drive.google.com/drive/folders/15dnNnOEjDZDvwzM-_tGGtWjTbNL669i7?usp=drive_link
 
-    - The files included in this repository
+    - The files included in this repository. Run `git clone <this repo>`
         - run.sh (automates the running of print_fires.py)
-        - print_fires.py (Currently set to return a list of the number of forest fires in the USA as integers)
-        - my_utils.py (contains the function needed to 'search' the csv and return the results from your query)
+        - print_fires.py (Currently set to return a list of the number of forest fires in the USA as integers. Has an optional argument to perform an operation (calculating mean, median, or standard deviation of the list and returning the specified value)
+        - my_utils.py (contains the function needed to 'search' the csv and return the results from your query as well as functions that calculate mean, median, and standard deviation of a list of integers)
 -How to run:
     - Run `./run.sh`
         - already has line to run scripts with command line arguments specified. You can change arguments in script to fit needs.
@@ -29,6 +33,15 @@
     - Examples:
         - This will run correctly: `python print_fires.py --file_name 'Agrofood_co2_emission.csv' --country 'United States of America' --country_column 0 --fires_column 3`
             -   Returns: `[1999, 1999, 1999, 1999, 1999, 1999, 3286, 1553, 3099, 3578, 3687, 534, 1475, 1224, 1201, 915, 1086, 1558, 2068, 1093, 912, 1330, 1173, 1284, 1336, 2235, 1438, 2664, 2457, 1190, 5405]`
+
+        - This will also run correctly (with the specified operation): `python print_fires.py --file_name 'Agrofood_co2_emission.csv' --country 'United States of America' --country_column 0 --fires_column 3 --operation dev`
+            - Returns: `1007.703`  
+
+        - This will also run correctly (with the specified operation): `python print_fires.py --file_name 'Agrofood_co2_emission.csv' --country 'United States of America' --country_column 0 --fires_column 3 --operation median`
+            - Returns: `1558`
+
+        - This will also run correctly (with the specified operation): `python print_fires.py --file_name 'Agrofood_co2_emission.csv' --country 'United States of America' --country_column 0 --fires_column 3 --operation mean`
+            - Returns: `1928.225806451613`
 
         - This will throw an error because of an incorrect command line argument argument: `python print_fires.py --file_name Agrofood_co2_emission.csv --country 'United States of America' --country_column five --fires_column 55`
             - Returns: ```usage: print_fires.py [-h] --file_name FILE_NAME --country COUNTRY --country_column COUNTRY_COLUMN [--fires_column FIRES_COLUMN]
