@@ -1,4 +1,4 @@
-"""get_fires.py will utilize the get_column function from my_utils.py. Luckily we have used arg parser and will help with any argument inputting mishaps. """
+"""get_fires.py will utilize the get_column function from my_utils.py. You can also perform some mathematical operations on the result.Luckily we have used arg parser and will help with any argument inputting mishaps. """
 
 import sys
 import argparse
