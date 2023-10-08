@@ -1,0 +1,29 @@
+name: Unit tests
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  run_unit_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          cd test
+          python -m unittest unit/test_my_utils.py
+  run_func_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          cd test
+          bash func/test_print_fires.sh
+run_style_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          cd src
+          pycodestyle my_utils.py
+          pycodestyle print_fires.py
