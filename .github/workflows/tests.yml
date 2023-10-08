@@ -10,7 +10,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python
-        with: python-version: 3.9
+        with:
+          python-version: 3.9
       - run: |
           cd test
           python -m unittest unit/test_my_utils.py
@@ -26,7 +27,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python
-        with: python-version: 3.9
+        with:
+          python-version: 3.9
       - run: |
           cd src
           pycodestyle my_utils.py
