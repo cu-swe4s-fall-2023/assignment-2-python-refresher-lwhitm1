@@ -3,9 +3,10 @@
 set -u
 set -o pipefail
 
-#This script runs print_fies.py with the updated command line arguments. The first example should run. The other two should have errors. 
+# This script runs print_fies.py with the updated command line arguments.
+# The first example should run. The other two should have errors. 
 
-#This one should work
+# This one should work
 python print_fires.py --file_name 'Agrofood_co2_emission.csv' --country 'United States of America' --country_column 0 --fires_column 3
 
 #This shoould also work
