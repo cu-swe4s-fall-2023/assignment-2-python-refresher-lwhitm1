@@ -2,8 +2,10 @@
 # python-refresher
 
 # Description
-- This project is part of my Software Engineering for Scientists class at CU Boulder. Most recent update is due to assignment 4.
+- This project is part of my Software Engineering for Scientists class at CU Boulder. Most recent update is due to assignment 5.
     
+    - Added continuous integration via GitHub Actions.
+
     - My_utils.py has new functionality! We can now calculate mean, median, and standard deviation.
 
         - Note: print_fires.py can handle using these operations. Pass the operation (mean, median, dev) that you would like to perform on the list returned from get_column using --operation. 
@@ -62,4 +64,10 @@
             - Run: 
             ```
             bash func/test_print_fires.sh
-            ``` 
+            ```
+
+# Continuous Integration
+    - When any branch is pushed or a pull request is made on the master branch automatic testing will begin.
+        - Unit tests will be run.
+        - Functional tests will be run.
+        - Style checks will be run.
