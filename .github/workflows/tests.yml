@@ -1,6 +1,8 @@
 name: Unit tests
 
 on:
+  push:
+    branches: ['*']
   pull_request:
     branches: [ master ]
 
@@ -14,6 +16,7 @@ jobs:
           python-version: 3.9
       - run: |
           cd test
+          pip install numpy
           python -m unittest unit/test_my_utils.py
   run_func_tests:
     runs-on: ubuntu-latest
