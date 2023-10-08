@@ -19,7 +19,7 @@ jobs:
       - run: |
           cd test
           bash func/test_print_fires.sh
-run_style_tests:
+  run_style_tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
