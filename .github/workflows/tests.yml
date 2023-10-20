@@ -25,6 +25,15 @@ jobs:
       - run: |
           cd test
           bash func/test_print_fires.sh
+  run_func_tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          cd test
+          pip install matplotlib
+          bash func/test_fires_snakemake.sh
+          
   run_style_tests:
     runs-on: ubuntu-latest
     steps:
@@ -37,3 +46,5 @@ jobs:
           cd src
           pycodestyle my_utils.py
           pycodestyle print_fires.py
+          pycodestyle get_data.py
+          pycodestyle hist.py
