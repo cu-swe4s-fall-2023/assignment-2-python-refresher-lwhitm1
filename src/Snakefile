@@ -1,0 +1,28 @@
+countries = ['Afghanistan', 'Finland', 'Italy', 'Botswana', 'Brazil']
+
+rule download_fire_file:
+    output:
+        "Agrofood_co2_emission.csv"
+    shell:
+        "curl --location --output Agrofood_co2_emission.csv 'https://drive.google.com/uc?id=1Wytf3ryf9EtOwaloms8HEzLG0yjtRqxr'"
+
+rule get_data:
+    input:
+        "Agrofood_co2_emission.csv"
+    output:
+        '../data/{country}_data.txt'
+    shell:
+        'python get_data.py {input} {wildcards.country} {output}'
+
+rule plot_hist:
+    input:
+        data_file="../data/{country}_data.txt"
+    output:
+        "../docs/{country}.png"
+    shell:
+        "python hist.py {input.data_file} {output} {wildcards.country} 'Fires' 'Frequency'"
+
+rule all:
+    input:
+        expand("../docs/{country}.png", country=countries)
+
