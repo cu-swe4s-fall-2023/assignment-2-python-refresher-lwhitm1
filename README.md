@@ -1,9 +1,17 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/oQi7O4AA)
+
 # python-refresher
 
 # Description
-- This project is part of my Software Engineering for Scientists class at CU Boulder. Most recent update is due to assignment 5.
-    
+- This project is part of my Software Engineering for Scientists class at CU Boulder. Most recent update is due to assignment 6.
+    # Introduction:
+        - We are looking at the number of forest fires in a given country from 1990-2020.
+            - The countries that we have generated data for are: Afghanistan, Brazil, Botswana, Finland, and Italy.
+    # Results:
+        - The histograms of the frequency of forest fires over the thirty year period for each country can be found in the docs directory.
+    # Methods:
+        - The data for forest firest in each country was retrieved from Agrofood_co2_emission.csv utilizing the utilities in the src directory (get_data.py which uses the get_column function in my_utils.py). The data was then plotted in a histogram by utilizing the hist.py script.
+        - This workflow was automated using Snakemake.
+- Previous updates
     - Added continuous integration via GitHub Actions.
 
     - My_utils.py has new functionality! We can now calculate mean, median, and standard deviation.
@@ -65,7 +73,9 @@
             ```
             bash func/test_print_fires.sh
             ```
-
+            ```
+            bash func/test_fires_snakemake.sh
+            ```
 # Continuous Integration
     - When any branch is pushed or a pull request is made on the master branch automatic testing will begin.
         - Unit tests will be run.
