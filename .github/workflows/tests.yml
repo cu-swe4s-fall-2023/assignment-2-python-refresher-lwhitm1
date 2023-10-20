@@ -25,7 +25,7 @@ jobs:
       - run: |
           cd test
           pip install matplotlib
-          bash func/test_fires_snakemake.sh
+          bash func/test_fire_snakemake.sh
           bash func/test_print_fires.sh
   run_style_tests:
     runs-on: ubuntu-latest
