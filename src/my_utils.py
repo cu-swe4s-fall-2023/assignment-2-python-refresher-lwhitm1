@@ -20,7 +20,7 @@ def get_column(file_name, query_column, query_value, result_column=1):
                 # If not able will exit with specified error
                 try:
                     if A[query_column] == query_value:
-                        result.append(int(float(A[result_column])))
+                        result.append(float(A[result_column]))
                 except IndexError:
                     print('''Something is wrong either country_column or
 fire_column;Not able to convert value to integer.''')
