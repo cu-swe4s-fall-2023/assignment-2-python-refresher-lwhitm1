@@ -10,5 +10,3 @@ with open(out_file, 'w') as f:
     fires = get_column(file_name, 0, country_name, 3)
     for data in fires:
         f.write(str(data) + '\n')
-
-
