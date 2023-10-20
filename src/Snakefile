@@ -1,10 +1,14 @@
 countries = ['Afghanistan', 'Finland', 'Italy', 'Botswana', 'Brazil']
 
+rule all:
+    input:
+        expand("../docs/{country}.png", country=countries)
+
 rule download_fire_file:
     output:
         "Agrofood_co2_emission.csv"
     shell:
-        "curl --location --output Agrofood_co2_emission.csv 'https://drive.google.com/uc?id=1Wytf3ryf9EtOwaloms8HEzLG0yjtRqxr'"
+        "wget -O {output} 'https://drive.google.com/uc?id=1Wytf3ryf9EtOwaloms8HEzLG0yjtRqxr'"
 
 rule get_data:
     input:
@@ -22,7 +26,4 @@ rule plot_hist:
     shell:
         "python hist.py {input.data_file} {output} {wildcards.country} 'Fires' 'Frequency'"
 
-rule all:
-    input:
-        expand("../docs/{country}.png", country=countries)
 
